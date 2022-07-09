@@ -141,7 +141,6 @@ namespace sdds
 	Date::Date() :m_currentYear(systemYear())
 	{
 
-		setEmpty();
 		setToToday();
 
 	}
@@ -192,11 +191,9 @@ namespace sdds
 		// SETTING THE ERROR CODE TO 0.
 		errCode(NO_ERROR);
 
-		is.get(year, 4);
-		is.ignore();
-		is.get(month, 2);
-		is.ignore();
-		is.get(date, 2, '\n');
+		is.get(year, 4, '/');
+		is.get(month, 2, '/');
+		is.get(date, 2, '/');
 
 		m_year = atoi(year);
 		m_mon = atoi(month);
@@ -208,8 +205,12 @@ namespace sdds
 			errCode(CIN_FAILED);
 
 		}
+		else
+		{
 
-		validate();
+			validate();
+
+		}
 
 		is.clear();
 
