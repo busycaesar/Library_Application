@@ -78,8 +78,19 @@ int main() {
 
 Date getDate() {
 	Date D;
-	do {
-		cin >> D;      // get D from console
-	} while (!D && cout << D.dateStatus() << ", Please try again > ");  // if D is invalid, print error message and loop
+	int temp = 0;
+	do
+	{
+
+		if (temp)
+		{
+			cout << D.dateStatus() << ", Please try again > ";
+		}
+
+		cin >> D;
+
+		temp = 1;
+	} while (!D);
+
 	return D;
 }

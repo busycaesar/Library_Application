@@ -185,19 +185,19 @@ namespace sdds
 	istream& Date::read(istream& is)
 	{
 
-		// VARIABLE DECLARATION.
-		char year[5], month[3], date[3];
-
 		// SETTING THE ERROR CODE TO 0.
 		errCode(NO_ERROR);
 
-		
+		is.clear();
 
-		m_year = atoi(year);
-		m_mon = atoi(month);
-		m_day = atoi(date);
+		is >> m_year;
+		is.get();
+		is >> m_mon;
+		is.get();
+		is >> m_day;
+		is.get();
 
-		if (is.fail())
+		if (!is)
 		{
 
 			errCode(CIN_FAILED);

@@ -19,7 +19,8 @@
 namespace sdds
 {
 
-
+	// FUNCTION SIGNATURE.
+	int prompt(int min, int max);
 
 }
 #endif // !

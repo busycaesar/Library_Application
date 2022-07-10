@@ -1,0 +1,4 @@
+1. namespace sdds
+2. add functions to private if not needed.
+3. meaningful name
+4. add constant if not changing the data members.
