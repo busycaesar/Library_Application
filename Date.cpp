@@ -182,7 +182,7 @@ namespace sdds
 
 	}
 
-	istream& Date::read(istream& is = cin)
+	istream& Date::read(istream& is)
 	{
 
 		// VARIABLE DECLARATION.
@@ -191,9 +191,7 @@ namespace sdds
 		// SETTING THE ERROR CODE TO 0.
 		errCode(NO_ERROR);
 
-		is.get(year, 4, '/');
-		is.get(month, 2, '/');
-		is.get(date, 2, '/');
+		
 
 		m_year = atoi(year);
 		m_mon = atoi(month);
@@ -308,11 +306,5 @@ namespace sdds
 		return RO.read(is);
 
 	}
-
-	// ================================== XXXXXXXXXXXXXXXXXXXXXXXXXXX =======================================
-	// ================================== XXXXXXXXXXXXXXXXXXXXXXXXXXX =======================================
-	// ================================== XXXXXXXXXXXXXXXXXXXXXXXXXXX =======================================
-	// ================================== XXXXXXXXXXXXXXXXXXXXXXXXXXX =======================================
-	// ================================== XXXXXXXXXXXXXXXXXXXXXXXXXXX =======================================
 
 }
