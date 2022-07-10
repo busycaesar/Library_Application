@@ -1,6 +1,3 @@
-/*
-
-
 #ifndef SDDS_MENU_H
 #define SDDS_MENU_H
 
@@ -83,11 +80,8 @@ namespace sdds
 	};
 
 	ostream& operator<<(ostream& LO, Menu& RO);
-	ostream& operator<<(ostream& LO, );
+	//ostream& operator<<(ostream& LO, Menu[i]);
 
 }
 
 #endif // !SDDS_MENU_H
-
-
-*/

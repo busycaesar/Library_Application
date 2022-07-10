@@ -188,19 +188,17 @@ namespace sdds
 		// SETTING THE ERROR CODE TO 0.
 		errCode(NO_ERROR);
 
-		is.clear();
-
 		is >> m_year;
 		is.get();
 		is >> m_mon;
 		is.get();
 		is >> m_day;
-		is.get();
 
 		if (!is)
 		{
 
 			errCode(CIN_FAILED);
+			is.clear();
 
 		}
 		else
@@ -209,8 +207,6 @@ namespace sdds
 			validate();
 
 		}
-
-		is.clear();
 
 		return is;
 

@@ -1,6 +1,3 @@
-/*
-
-
 #include<iostream>
 #include<cstring>
 #include"Menu.h"
@@ -247,6 +244,3 @@ namespace sdds
 
 
 }
-
-
-*/
