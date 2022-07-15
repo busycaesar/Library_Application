@@ -11,8 +11,8 @@
 /////////////////////////////////////////////////////////////////
 ***********************************************************************/
 
-#ifndef SDDS_UTILS_H__
-#define SDDS_UTILS_H__
+#ifndef SDDS_UTILS_H_
+#define SDDS_UTILS_H_
 
 #include <iostream>
 
@@ -23,4 +23,4 @@ namespace sdds
 	int prompt(int min, int max);
 
 }
-#endif // !
+#endif // SDDS_UTILS_H_

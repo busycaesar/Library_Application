@@ -189,12 +189,12 @@ namespace sdds
 		errCode(NO_ERROR);
 
 		is >> m_year;
-		is.get();
+		is.ignore(1);
 		is >> m_mon;
-		is.get();
+		is.ignore(1);
 		is >> m_day;
 
-		if (!is)
+		if (is.fail())
 		{
 
 			errCode(CIN_FAILED);
@@ -207,6 +207,8 @@ namespace sdds
 			validate();
 
 		}
+
+		is.ignore(1000, '\n');
 
 		return is;
 
