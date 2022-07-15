@@ -27,15 +27,6 @@ namespace sdds
 
 	}
 
-	/*
-	MenuItem::MenuItem(const MenuItem& source)
-	{
-
-		setItem(source.m_item);
-
-	}
-	*/
-
 	void MenuItem::setEmpty()
 	{
 
@@ -85,26 +76,6 @@ namespace sdds
 		return m_item;
 
 	}
-
-	/*
-	MenuItem& MenuItem::operator=(const MenuItem& source)
-	{
-
-		if (this != &source)
-		{
-
-			delete[] m_item;
-
-			setEmpty();
-
-			setItem(source.m_item);
-
-		}
-
-		return *this;
-
-	}
-	*/
 
 	// 2. IMPLEMENTATION OF CLASS Menu.
 
