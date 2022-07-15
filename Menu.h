@@ -10,7 +10,7 @@ namespace sdds
 {
 
 	// CONSTANTS.
-	const int MAX_MENU_ITEMS = 20;
+	const int MAX_MENUITEMS = 20;
 
 	// CLASS.
 	class MenuItem
@@ -25,7 +25,7 @@ namespace sdds
 		MenuItem(const MenuItem& source) = delete;
 
 		// DESTRUCTOR.
-		~MenuItem();
+		//~MenuItem();
 
 		// MEMBER FUNCTIONS.
 		void setEmpty();
@@ -50,7 +50,7 @@ namespace sdds
 
 		// DATA MEMBERS.
 		char* m_MenuTitle;
-		MenuItem* m_items[MAX_MENU_ITEMS];
+		MenuItem* m_items[MAX_MENUITEMS];
 		int m_totalItems;
 
 		// MEMBER FUNCTION.

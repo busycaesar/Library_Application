@@ -12,6 +12,7 @@
 /////////////////////////////////////////////////////////////////
 ***********************************************************************/
 
+/*
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
@@ -36,15 +37,19 @@ namespace sdds
 			{
 
 				cout << "Invalid Selection, try again: ";
+				cin.clear();
+				cin.ignore(1000, '\n');
 
 			}
 
 			cin >> selection;
+			temp = 1;
 
-		} while (selection >= min && selection <= max);
+		} while (selection < min || selection > max || cin.fail());
 
 		return selection;
 
 	}
 
 }
+*/

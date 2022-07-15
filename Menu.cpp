@@ -34,7 +34,6 @@ namespace sdds
 		setItem(source.m_item);
 
 	}
-	*/
 
 	MenuItem::~MenuItem()
 	{
@@ -42,6 +41,7 @@ namespace sdds
 		m_item = nullptr;
 
 	}
+	*/
 
 	void MenuItem::setEmpty()
 	{
@@ -68,7 +68,7 @@ namespace sdds
 	ostream& MenuItem::display(ostream& out)const
 	{
 
-		if (isEmpty())
+		if (!isEmpty())
 		{
 
 			out << m_item;
@@ -174,7 +174,13 @@ namespace sdds
 	{
 
 		displayTitle(out);
-		out << ":" << endl;
+
+		if (m_MenuTitle != nullptr)
+		{
+
+			out << ":" << endl;
+
+		}
 
 		for (int i = 0; i < m_totalItems; i++)
 		{
@@ -215,24 +221,12 @@ namespace sdds
 	Menu& Menu::operator<<(const char* newItem)
 	{
 
-		if (m_totalItems < MAX_MENU_ITEMS)
+		if (m_totalItems < MAX_MENUITEMS)
 		{
 
-			cout << m_totalItems << endl << endl;//===========
-
-			// VARIABLE DECLARATION.
-			MenuItem temp(newItem);
-
-			m_items[m_totalItems] = &temp;
+			m_items[m_totalItems] = new MenuItem(newItem);
 			m_totalItems++;
 
-			cout << m_totalItems << endl << endl;//============
-
-		}
-
-		for (int i = 0; i < m_totalItems; i++)//======================
-		{
-			cout << m_items[i]->m_item << endl;
 		}
 
 		return *this;
