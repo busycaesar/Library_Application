@@ -2,6 +2,7 @@
 #define SDDS_MENU_H
 
 #include<iostream>
+#include<cstring>
 
 using namespace std;
 
@@ -18,29 +19,26 @@ namespace sdds
 		// DATA MEMBER.
 		char* m_item;
 
-		// MEMBER FUNCTIONS.
-		void setEmpty();
-		bool isEmpty();
-
 		// CONSTRUCTOR.
 		MenuItem();
 		MenuItem(const char* item);
-		MenuItem(const MenuItem& source);
+		MenuItem(const MenuItem& source) = delete;
 
 		// DESTRUCTOR.
 		~MenuItem();
 
-	public:
-
 		// MEMBER FUNCTIONS.
-		ostream& display(ostream& out);
+		void setEmpty();
+		bool isEmpty()const;
+		void setItem(const char* item);
+		ostream& display(ostream& out)const;
 
 		// TYPE CONVERSION.
-		operator bool();
-		operator const char* ();
+		operator bool()const;
+		operator const char* ()const;
 
 		// OPERATOR.
-		MenuItem& operator=(const MenuItem& source);
+		MenuItem& operator=(const MenuItem& source) = delete;
 
 		// FRIEND.
 		friend class Menu;
@@ -51,7 +49,7 @@ namespace sdds
 	{
 
 		// DATA MEMBERS.
-		char* m_MenuItem;
+		char* m_MenuTitle;
 		MenuItem* m_items[MAX_MENU_ITEMS];
 		int m_totalItems;
 
@@ -68,19 +66,19 @@ namespace sdds
 		~Menu();
 
 		// MEMBER FUNCTION.
-		ostream& displayTitle(ostream& out);
-		ostream& displayMenu(ostream& out);
-		unsigned int run();
+		ostream& displayTitle(ostream& out)const;
+		ostream& displayMenu(ostream& out)const;
+		unsigned int run()const	;
 
 		// OPERATOR.
-		unsigned int operator~();
+		unsigned int operator~()const;
 		Menu& operator<<(const char* menuitemConent);
-		ostream& operator[](int i);
+		const char* operator[](int i)const;
 
 		// TYPE CONVERSION.
-		operator int();
-		operator unsigned();
-		operator bool();
+		operator int()const;
+		operator unsigned int()const;
+		operator bool()const;
 
 	};
 
@@ -88,4 +86,4 @@ namespace sdds
 
 }
 
-#endif // !SDDS_MENU_H
+#endif // !SDDS_MENU_H 
