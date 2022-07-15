@@ -34,13 +34,6 @@ namespace sdds
 		setItem(source.m_item);
 
 	}
-
-	MenuItem::~MenuItem()
-	{
-
-		m_item = nullptr;
-
-	}
 	*/
 
 	void MenuItem::setEmpty()

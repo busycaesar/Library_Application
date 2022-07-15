@@ -24,9 +24,6 @@ namespace sdds
 		MenuItem(const char* item);
 		MenuItem(const MenuItem& source) = delete;
 
-		// DESTRUCTOR.
-		//~MenuItem();
-
 		// MEMBER FUNCTIONS.
 		void setEmpty();
 		bool isEmpty()const;

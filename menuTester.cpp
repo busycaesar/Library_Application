@@ -8,6 +8,8 @@
 // Name               Date                 Reason
 /////////////////////////////////////////////////////////////////
 
+/*
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
@@ -55,3 +57,4 @@ void showOrder(const unsigned int* cnt, const Menu& M) {
 	}
 	if (!orderedSomthing) cout << "You didn't order anything!" << endl;
 }
+*/
