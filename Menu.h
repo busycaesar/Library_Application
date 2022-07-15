@@ -1,3 +1,21 @@
+//******************************************************************//
+//                                                                  //
+// NAME       : DEV JIGISHKUMAR SHAH                                // 
+// STUDENT ID : 131623217                                           //
+// MAIL ID    : djshah11@myseneca.ca                                //
+// COURSE     : OOP 244 NCC                                         //
+// SUBMISSION : SENECA LIBRARY APPLICATION (MILESTONE 1)            //
+//                                                                  //
+//******************************************************************// 
+//                                                                  //
+// AUTHENTICITY DECLARATION :                                       //
+// I DECLARE THAT THIS SUBMISSION IS THE RESULT OF MY OWN WORK AND  //
+// HAS NOT BEEN SHARED WITH ANY OTHR STUDENT OR 3RD PARTY CONTENT   //
+// PROVIDER. THIS SUBMITTED PIECE OF WORK IS ENTIRELY OF MY OWN     //
+// CREATION.                                                        //
+//                                                                  //
+//******************************************************************//
+
 #ifndef SDDS_MENU_H
 #define SDDS_MENU_H
 
@@ -24,6 +42,9 @@ namespace sdds
 		MenuItem(const char* item);
 		MenuItem(const MenuItem& source) = delete;
 
+		// DESTRUCTOR.
+		~MenuItem();
+
 		// MEMBER FUNCTIONS.
 		void setEmpty();
 		bool isEmpty()const;
@@ -48,7 +69,7 @@ namespace sdds
 		// DATA MEMBERS.
 		char* m_MenuTitle;
 		MenuItem* m_items[MAX_MENUITEMS];
-		int m_totalItems;
+		unsigned int m_totalItems;
 
 		// MEMBER FUNCTION.
 		void setEmpty();
@@ -70,7 +91,7 @@ namespace sdds
 		// OPERATOR.
 		unsigned int operator~()const;
 		Menu& operator<<(const char* menuitemConent);
-		const char* operator[](int i)const;
+		const char* operator[](unsigned int i)const;
 
 		// TYPE CONVERSION.
 		operator int()const;

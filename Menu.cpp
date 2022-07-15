@@ -1,3 +1,21 @@
+//******************************************************************//
+//                                                                  //
+// NAME       : DEV JIGISHKUMAR SHAH                                // 
+// STUDENT ID : 131623217                                           //
+// MAIL ID    : djshah11@myseneca.ca                                //
+// COURSE     : OOP 244 NCC                                         //
+// SUBMISSION : SENECA LIBRARY APPLICATION (MILESTONE 1)            //
+//                                                                  //
+//******************************************************************// 
+//                                                                  //
+// AUTHENTICITY DECLARATION :                                       //
+// I DECLARE THAT THIS SUBMISSION IS THE RESULT OF MY OWN WORK AND  //
+// HAS NOT BEEN SHARED WITH ANY OTHR STUDENT OR 3RD PARTY CONTENT   //
+// PROVIDER. THIS SUBMITTED PIECE OF WORK IS ENTIRELY OF MY OWN     //
+// CREATION.                                                        //
+//                                                                  //
+//******************************************************************//
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include<iostream>
@@ -25,6 +43,14 @@ namespace sdds
 		setEmpty();
 		setItem(item);
 
+	}
+
+	MenuItem::~MenuItem()
+	{
+	
+		delete[] m_item;
+		m_item = nullptr;
+	
 	}
 
 	void MenuItem::setEmpty()
@@ -108,12 +134,14 @@ namespace sdds
 	Menu::~Menu()
 	{
 
-		delete[]m_MenuTitle;
+		delete[] m_MenuTitle;
+		m_MenuTitle = nullptr;
 
-		for (int i = 0; i < m_totalItems; i++)
+		for (unsigned int i = 0; i < m_totalItems; i++)
 		{
 
-			delete[] m_items[i];
+			delete m_items[i];
+			m_items[i] = nullptr;
 
 		}
 
@@ -146,7 +174,7 @@ namespace sdds
 
 		}
 
-		for (int i = 0; i < m_totalItems; i++)
+		for (unsigned int i = 0; i < m_totalItems; i++)
 		{
 
 			out.width(2);
@@ -156,7 +184,7 @@ namespace sdds
 
 		}
 
-		out << "0- Exit" << endl << "> ";
+		out << " 0- Exit" << endl << "> ";
 
 		return out;
 
@@ -166,7 +194,7 @@ namespace sdds
 	{
 
 		// VARIABLE DECLARATION.
-		int selection = 0, temp = 0;
+		int selection = 0;
 
 		displayMenu(cout);
 		selection = prompt(0, m_totalItems);
@@ -197,13 +225,19 @@ namespace sdds
 
 	}
 
-	const char* Menu::operator[](int i)const
+	const char* Menu::operator[](unsigned int i)const
 	{
 
 		if (i <= m_totalItems && i >= 0)
 		{
 
 			return m_items[i]->m_item;
+
+		}
+		else
+		{
+
+			return "error";
 
 		}
 

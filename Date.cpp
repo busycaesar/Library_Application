@@ -238,14 +238,14 @@ namespace sdds
 	bool Date::operator==(const Date& RO)const
 	{
 
-		return (m_day == RO.m_day && m_mon == RO.m_mon && m_year == RO.m_year);
+		return (m_year == RO.m_year && m_mon == RO.m_mon && m_day == RO.m_day);
 
 	}
 
 	bool Date::operator!=(const Date& RO)const
 	{
 
-		return m_day != RO.m_day;
+		return !(*this == RO);
 
 	}
 
@@ -266,14 +266,14 @@ namespace sdds
 	bool Date::operator<(const Date& RO)const
 	{
 
-		return ((m_year <= RO.m_year) && (m_mon <= RO.m_mon) && (m_day < RO.m_day));
+		return ((m_year <= RO.m_year) && (m_mon <= RO.m_mon) && (*this != RO));
 
 	}
 
 	bool Date::operator>(const Date& RO)const
 	{
 
-		return ((m_year >= RO.m_year) && (m_mon >= RO.m_mon) && (m_day > RO.m_day));
+		return ((*this != RO) && !(*this < RO));
 
 	}
 
