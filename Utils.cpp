@@ -1,9 +1,9 @@
 /***********************************************************************
 // OOP244 Utils Module:
 // File  utils.cpp
-// Version
-// Date
-// Author
+// Version 1.0
+// Date 15 / 07 / 2022
+// Author Dev Jigishkumar Shah
 // Description
 //
 // Revision History
@@ -11,6 +11,7 @@
 // Name            Date            Reason
 /////////////////////////////////////////////////////////////////
 ***********************************************************************/
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>

@@ -1,4 +1,4 @@
-	// Final Project Milestone 1
+// Final Project Milestone 1
 // Date Module
 // File  Date.h
 // Version 1.0
@@ -70,14 +70,14 @@ namespace sdds
 		ostream& write(ostream& os)const;
 
 		// MEMBER OPERATORS.
-		bool operator ==(Date& RO);
-		bool operator !=(Date& RO);
-		bool operator >=(Date& RO);
-		bool operator <=(Date& RO);
-		bool operator <(Date& RO);
-		bool operator >(Date& RO);
-		int operator -(Date& RO);
-		operator bool();
+		bool operator==(const Date& RO)const;
+		bool operator!=(const Date& RO)const;
+		bool operator>=(const Date& RO)const;
+		bool operator<=(const Date& RO)const;
+		bool operator<(const Date& RO)const;
+		bool operator>(const Date& RO)const;
+		int operator-(const Date& RO)const;
+		operator bool()const;
 
 	};
 

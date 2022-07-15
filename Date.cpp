@@ -235,59 +235,59 @@ namespace sdds
 
 	}
 
-	bool Date::operator ==(Date& RO)
+	bool Date::operator==(const Date& RO)const
 	{
 
-		return (m_day == RO.m_day && m_mon == RO.m_mon && m_year == RO.m_year);
+		return (m_year == RO.m_year && m_mon == RO.m_mon && m_day == RO.m_day);
 
 	}
 
-	bool Date::operator !=(Date& RO)
+	bool Date::operator!=(const Date& RO)const
 	{
 
-		return m_day != RO.m_day;
+		return !(*this == RO);
 
 	}
 
-	bool Date::operator >=(Date& RO)
+	bool Date::operator>=(const Date& RO)const
 	{
 
 		return(*this > RO || *this == RO);
 
 	}
 
-	bool Date::operator <=(Date& RO)
+	bool Date::operator<=(const Date& RO)const
 	{
 
 		return(*this < RO || *this == RO);
 
 	}
 
-	bool Date::operator <(Date& RO)
+	bool Date::operator<(const Date& RO)const
 	{
 
-		return ((m_year <= RO.m_year) && (m_mon <= RO.m_mon) && (m_day < RO.m_day));
+		return ((m_year <= RO.m_year) && (m_mon <= RO.m_mon) && (*this != RO));
 
 	}
 
-	bool Date::operator >(Date& RO)
+	bool Date::operator>(const Date& RO)const
 	{
 
-		return ((m_year >= RO.m_year) && (m_mon >= RO.m_mon) && (m_day > RO.m_day));
+		return ((*this != RO) && !(*this < RO));
 
 	}
 
-	int Date::operator -(Date& RO)
+	int Date::operator-(const Date& RO)const
 	{
 
 		return daysSince0001_1_1() - RO.daysSince0001_1_1();
 
 	}
 
-	Date::operator bool()
+	Date::operator bool()const
 	{
 
-		return validate();
+		return !bad();
 
 	}
 
