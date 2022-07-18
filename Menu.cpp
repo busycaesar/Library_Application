@@ -167,13 +167,6 @@ namespace sdds
 
 		displayTitle(out);
 
-		if (m_MenuTitle != nullptr)
-		{
-
-			out << ":" << endl;
-
-		}
-
 		for (unsigned int i = 0; i < m_totalItems; i++)
 		{
 
