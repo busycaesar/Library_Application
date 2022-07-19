@@ -8,9 +8,7 @@ namespace sdds
 	{
 
 		m_changed = false;
-		m_mainMenu=("Seneca Libray Application");
 		m_mainMenu << "Add New Publication" << "Remove Publication" << "Checkout publication from library" << "Return publication to library";
-		m_exitMenu =("Changes have been made to the data, what would you like to do?");
 		m_exitMenu << "Save changes and exit" << "Cancel and go back to the main menu";
 
 	}
@@ -115,12 +113,12 @@ namespace sdds
 	{
 
 		// VARIABLE DECLARATION.
-		unsigned int temp = 0;
-
-		temp = m_mainMenu.run();
+		unsigned int temp = 1;
 
 		while (temp != 0)
 		{
+
+			temp = m_mainMenu.run();
 
 			switch (temp)
 			{

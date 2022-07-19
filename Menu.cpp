@@ -47,10 +47,10 @@ namespace sdds
 
 	MenuItem::~MenuItem()
 	{
-	
+
 		delete[] m_item;
 		m_item = nullptr;
-	
+
 	}
 
 	void MenuItem::setEmpty()
@@ -165,7 +165,7 @@ namespace sdds
 	ostream& Menu::displayMenu(ostream& out)const
 	{
 
-		displayTitle(out);
+		displayTitle(out) << endl;
 
 		for (unsigned int i = 0; i < m_totalItems; i++)
 		{
