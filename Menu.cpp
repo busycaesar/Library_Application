@@ -4,7 +4,7 @@
 // STUDENT ID : 131623217                                           //
 // MAIL ID    : djshah11@myseneca.ca                                //
 // COURSE     : OOP 244 NCC                                         //
-// SUBMISSION : SENECA LIBRARY APPLICATION (MILESTONE 1)            //
+// SUBMISSION : SENECA LIBRARY APPLICATION (MILESTONE 2)            //
 //                                                                  //
 //******************************************************************// 
 //                                                                  //

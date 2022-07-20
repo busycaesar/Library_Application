@@ -41,7 +41,7 @@
     <ClCompile Include="LibApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tester.cpp">
+    <ClCompile Include="ms2_tester.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

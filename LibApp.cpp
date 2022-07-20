@@ -1,4 +1,23 @@
+//******************************************************************//
+//                                                                  //
+// NAME       : DEV JIGISHKUMAR SHAH                                // 
+// STUDENT ID : 131623217                                           //
+// MAIL ID    : djshah11@myseneca.ca                                //
+// COURSE     : OOP 244 NCC                                         //
+// SUBMISSION : SENECA LIBRARY APPLICATION (MILESTONE 2)            //
+//                                                                  //
+//******************************************************************// 
+//                                                                  //
+// AUTHENTICITY DECLARATION :                                       //
+// I DECLARE THAT THIS SUBMISSION IS THE RESULT OF MY OWN WORK AND  //
+// HAS NOT BEEN SHARED WITH ANY OTHR STUDENT OR 3RD PARTY CONTENT   //
+// PROVIDER. THIS SUBMITTED PIECE OF WORK IS ENTIRELY OF MY OWN     //
+// CREATION.                                                        //
+//                                                                  //
+//******************************************************************//
+
 #include"LibApp.h"
+#include<iostream>
 
 namespace sdds
 {
@@ -18,7 +37,7 @@ namespace sdds
 		// VARIABLE DECLARATION.
 		Menu temp(message);
 
-		temp << "yes";
+		temp << "Yes";
 		return (temp.run() == 1);
 
 	}
@@ -124,48 +143,74 @@ namespace sdds
 			{
 
 			case 1:
+
 				newPublication();
 				break;
+			
 			case 2:
+			
 				removePublication();
 				break;
+			
 			case 3:
+
 				checkOutPub();
 				break;
+
 			case 4:
+
 				returnPub();
 				break;
-			}
 
-		}
-
-		if (m_changed)
-		{
-
-			switch (m_exitMenu.run())
-			{
-
-			case 1:
-				save();
-				break;
-			case 2:
-				run();
-				break;
 			case 0:
-				if (!confirm("This will discard all the changes are you sure?"))
+
+				if (m_changed)
 				{
 
-					run();
+					switch (m_exitMenu.run())
+					{
+
+					case 1:
+						save();
+						break;
+
+					case 2:
+
+						// IF THE USER ENTERS 2, WE WANT THIS WHOLE FUNCTION TO REPEAT. HENCE, I AM CONVERTING THE TEMP VALUE TO NOT EQUAL TO 0, SO THAT THE PROGRAM ENTERS THE WHILE LOOP AGAIN. ALSO, THIS WILL PRINT A NEW LINE AS WE HAVE A FUNCTION BELOW TO PRINT A NEW LINE IF TEMP IS NOT 0.
+						temp = 1;
+						break;
+
+					case 0:
+
+						if (!confirm("This will discard all the changes are you sure?"))
+						{
+
+							run();
+
+						}
+
+						break;
+
+					}
 
 				}
+
 				break;
 
 			}
 
+			// IF TEMP, THAT IS, THE SELECTED OPTION FROM THE MAIN MENU IS NOT 0, THAT IS TO EXIT THE APPLICATION, IT WILL PRINT THE CONTENT INTO NEW LINE.
+			if (temp) 
+			{ 
+			
+				cout << endl; 
+			
+			}
+
 		}
 
-		cout << "-------------------------------------------" << endl <<
-			"Thanks for using Seneca Library Application";
+		cout << endl << "-------------------------------------------" << endl <<
+			"Thanks for using Seneca Library Application" << endl;
 
 	}
 

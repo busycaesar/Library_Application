@@ -1,3 +1,21 @@
+//******************************************************************//
+//                                                                  //
+// NAME       : DEV JIGISHKUMAR SHAH                                // 
+// STUDENT ID : 131623217                                           //
+// MAIL ID    : djshah11@myseneca.ca                                //
+// COURSE     : OOP 244 NCC                                         //
+// SUBMISSION : SENECA LIBRARY APPLICATION (MILESTONE 2)            //
+//                                                                  //
+//******************************************************************// 
+//                                                                  //
+// AUTHENTICITY DECLARATION :                                       //
+// I DECLARE THAT THIS SUBMISSION IS THE RESULT OF MY OWN WORK AND  //
+// HAS NOT BEEN SHARED WITH ANY OTHR STUDENT OR 3RD PARTY CONTENT   //
+// PROVIDER. THIS SUBMITTED PIECE OF WORK IS ENTIRELY OF MY OWN     //
+// CREATION.                                                        //
+//                                                                  //
+//******************************************************************//
+
 #ifndef SDDS_LIBAPP_H
 #define SDDS_LIBAPP_H
 
@@ -12,7 +30,7 @@ namespace sdds
 
 		// DATA MEMBERS.
 		bool m_changed;
-		Menu m_mainMenu{ "Seneca Libray Application" };
+		Menu m_mainMenu{ "Seneca Library Application" };
 		Menu m_exitMenu{"Changes have been made to the data, what would you like to do?"};
 
 		// MEMBER FUNCTION.

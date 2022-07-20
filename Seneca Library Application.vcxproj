@@ -148,7 +148,7 @@
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="LibApp.cpp" />
     <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="tester.cpp" />
+    <ClCompile Include="ms2_tester.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
