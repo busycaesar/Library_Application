@@ -1,24 +1,70 @@
+//******************************************************************//
+//                                                                  //
+// NAME       : DEV JIGISHKUMAR SHAH                                // 
+// STUDENT ID : 131623217                                           //
+// MAIL ID    : djshah11@myseneca.ca                                //
+// COURSE     : OOP 244 NCC                                         //
+// SUBMISSION : MILESTONE 3                                         //
+//                                                                  //
+//******************************************************************// 
+//                                                                  //
+// AUTHENTICITY DECLARATION :                                       //
+// I DECLARE THAT THIS SUBMISSION IS THE RESULT OF MY OWN WORK AND  //
+// HAS NOT BEEN SHARED WITH ANY OTHR STUDENT OR 3RD PARTY CONTENT   //
+// PROVIDER. THIS SUBMITTED PIECE OF WORK IS ENTIRELY OF MY OWN     //
+// CREATION.                                                        //
+//                                                                  //
+//******************************************************************//
+
+#define _CRT_SECURE_NO_WARNINGS
+
 #include<iostream>
 #include<cstring>
 #include"Publication.h"
+#include <iomanip>
 
 using namespace std;
 
 namespace sdds
 {
 
+	void Publication::setDefault()
+	{
+
+		m_title = nullptr;
+		m_shelfID[0] = '\0';
+		m_membership = 0;
+		m_libRef = -1;
+		m_date = Date();
+
+	}
+
+	void Publication::setTitle(const char* title)
+	{
+
+		m_title = new char[255 + 1];
+		strcpy(m_title, title);
+
+	}
+
 	// CONSTRUCTOR.
 	Publication::Publication()
 	{
 
-		setEmpty();
+		setDefault();
 
 	}
 	Publication::Publication(const Publication& source)
 	{
 
-		setEmpty();
-		*this = source;
+		setDefault();
+
+		if (bool(source))
+		{
+
+			*this = source;
+
+		}
 
 	}
 
@@ -27,7 +73,6 @@ namespace sdds
 	{
 
 		delete[]m_title;
-		m_title = nullptr;
 
 	}
 
@@ -46,7 +91,7 @@ namespace sdds
 		{
 
 			delete[]m_title;
-			setEmpty();
+			setDefault();
 
 			strcpy(m_title, source.m_title);
 			strcpy(m_shelfID, source.m_shelfID);
@@ -76,17 +121,6 @@ namespace sdds
 	}
 
 	// METHOD.
-	void Publication::setEmpty()
-	{
-
-		m_title = nullptr;
-		m_title = new char[255];
-		m_shelfID[0] = '\0';
-		m_membership = 0;
-		m_libRef = -1;
-
-	}
-
 	void Publication::set(int member_id)
 	{
 
@@ -103,7 +137,8 @@ namespace sdds
 
 	void Publication::resetDate()
 	{
-		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		m_date = Date();
 
 	}
 
@@ -124,7 +159,7 @@ namespace sdds
 	Date Publication::checkoutDate()const
 	{
 
-		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		return m_date;
 
 	}
 
@@ -135,53 +170,101 @@ namespace sdds
 
 	}
 
-	bool Publication::conIO(ios& io)const
+	bool Publication::conIO(std::ios& io)const
 	{
 
 		return (&io == &cout || &io == &cin);
 
 	}
 
-	ostream& Publication::write(ostream& os)const
+	ostream& Publication::write(std::ostream& out)const
 	{
 
-		if (conIO(os))
+		if (conIO(out))
 		{
 
-			os << "| " << m_shelfID << " | ";
-			os.width(30);
-			os.fill('.');
-			os << left << m_title << " | " << m_membership << " | " << m_date << " |";
+			out << "| " << m_shelfID << " | " << setw(30) << setfill('.') << left << m_title << " | " << m_membership << " | " << m_date << " |";
 
 		}
 		else
 		{
 
-			os << type() << "	" << m_shelfID << "	" << m_title << "	" << m_membership << "	" << m_date;
+			out << type() << "\t" << m_shelfID << "\t" << m_title << "\t" << m_membership << "\t" << m_date;
 
 		}
+
+		return out;
 
 	}
 
-	istream& Publication::read(istream& istr)//////////////////////////
+	istream& Publication::read(istream& in)
 	{
 
-		delete[] m_title;
-		setEmpty();
+		// VARIABLE DECLARATION.
+		char whatsTitle[255 + 1];
+		char whichShelf[SDDS_SHELF_ID_LEN + 1];
+		unsigned int whichMember = 0;
+		int whatsrefNum = -1;
+		Date whichDate;
 
-		if (conIO(istr))
+		delete[] m_title;
+		setDefault();
+
+		if (conIO(in))
 		{
 
 			cout << "Shelf No: ";
-			istr.get(m_shelfID, SDDS_SHELF_ID_LEN);///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			in.getline(whichShelf, 4, '\n');
+
+			if (strlen(whichShelf) != 4)
+			{
+
+				/////////////////////////////
+
+			}
 
 			cout << "Title: ";
-			istr >> m_title;
+
+			in.getline(whatsTitle, 255, '\n');
+
 			cout << "Date: ";
-			istr >> m_date;
+			in >> m_date;
+
+		}
+		else
+		{
+
+			in.ignore(1, '\t');
+			in >> whatsrefNum;
+			in.ignore(1, '\t');
+			in.getline(whichShelf, 4, '\t');
+			in.getline(whatsTitle, 255, '\t');
+			in >> m_membership;
+			in.ignore(1, '\t');
+			in >> m_date;
 
 		}
 
+		if (m_date)
+		{
+
+			//////////////////////////////////////////////////////////////////////////////////////////////////
+
+		}
+
+		if (in)
+		{
+
+			delete[] m_title;
+			setTitle(whatsTitle);
+			strcpy(m_shelfID, whichShelf);
+			set(whichMember);
+			m_date = whichDate;
+			setRef(whatsrefNum);
+
+		}
+
+		return in;
 
 	}
 

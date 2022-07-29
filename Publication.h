@@ -4,23 +4,32 @@
 #include<iostream>
 #include"Lib.h"
 #include"Date.h"
+#include"Streamable.h"
 
 namespace sdds
 {
 
 	// CLASS.
-	class Publication
+	class Publication: public Streamable
 	{
 
 		// DATA MEMBER.
 		// HOLDS THE TITLE OF THE PUBLICATION.
-		char* m_title;
+		char* m_title = nullptr;
 		// HOLDS THE SHELDID IN WHICH THE PUBLICATION IS STORED.
 		char m_shelfID[SDDS_SHELF_ID_LEN + 1];
-		// "m_membership" HOLDS THE MEMBERSHIP ID OF THE MEMBER WHO ISSUED THIS PUBLICATION. // "m_libRef" HOLDS A UNIQUE ID WHICH IDENTIFIES THIS PUBLICATION.
-		int m_membership, m_libRef;
-		// HOLDS THE DATE ON WHICH THE PUBLICATION WAS ISSUED.
+		// HOLDS THE MEMBERSHIP ID OF THE MEMBER WHO ISSUED THIS PUBLICATION.
+		unsigned int m_membership;
+		// HOLDS A UNIQUE ID WHICH IDENTIFIES THIS PUBLICATION.
+		int m_libRef;
+		// HOLDS THE DATE ON WHICH THE PERIODICAL PUBLICATION WAS ISSUED. || HOLDS THE DATE ON WHICH THE BOOK WAS BORROWED BY THE MEMBER.
 		Date m_date;
+
+		// METHOD.
+		void setDefault();
+		void setTitle(const char* title);
+
+	public:
 
 		// CONSTRUCTOR.
 		Publication();
@@ -38,17 +47,16 @@ namespace sdds
 		operator bool()const;
 
 		// METHOD.
-		void setEmpty();
-		virtual void set(int member_id=0);
+		virtual void set(int member_id = 0);
 		void setRef(int value);
 		void resetDate();
 		virtual char type()const;
 		bool onLoan()const;
 		Date checkoutDate()const;
 		int getRef()const;
-		bool conIO(ios& io)const;
-		ostream& write(ostream& os)const;
-		istream& read(istream& istr);
+		virtual bool conIO(ios& io)const;
+		virtual ostream& write(ostream& out)const;
+		virtual istream& read(istream& in);
 
 	};
 

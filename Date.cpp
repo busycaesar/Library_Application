@@ -95,25 +95,25 @@ namespace sdds
 
 	}
 
-	int Date::systemYear()const 
+	int Date::systemYear()const
 	{
-	
+
 		// VARIABLE DECLARATION.
 		int theYear = sdds_year;
 
-		if (!sdds_test) 
+		if (!sdds_test)
 		{
-		
+
 			// VARIABLE DECLARATION.
 			time_t t = time(NULL);
 			tm lt = *localtime(&t);
 
 			theYear = lt.tm_year + 1900;
-		
+
 		}
-		
+
 		return theYear;
-	
+
 	}
 
 	// THIS WILL RETURN TRUE IF THERE IS NO ERROR IN THE DATES. OTHERWISE FALSE.
@@ -139,20 +139,20 @@ namespace sdds
 	}
 
 	// THIS WILL ASSIGN THE DATA MEMBERS VALUE AS PER CURRENT DATE.
-	void Date::setToToday() 
+	void Date::setToToday()
 	{
-	
-		if (sdds_test) 
+
+		if (sdds_test)
 		{
-		
+
 			m_day = sdds_day;
 			m_mon = sdds_mon;
 			m_year = sdds_year;
-		
+
 		}
-		else 
+		else
 		{
-		
+
 			// VARIABLE DECLARATION.
 			time_t t = time(NULL);
 			tm lt = *localtime(&t);
@@ -160,12 +160,12 @@ namespace sdds
 			m_day = lt.tm_mday;
 			m_mon = lt.tm_mon + 1;
 			m_year = lt.tm_year + 1900;
-		
+
 		}
 
 		errCode(NO_ERROR);
-	
-	 }
+
+	}
 
 	// THIS WILL BUILD AN OBJECT AND ASSIGN THE DATA MEMBERS VALUE AS PER CURRENT DATE.
 	Date::Date() :m_currentYear(systemYear())
@@ -309,6 +309,24 @@ namespace sdds
 	{
 
 		return daysSince0001_1_1() - RO.daysSince0001_1_1();
+
+	}
+
+	Date& Date::operator=(const Date& source)
+	{
+
+		if (this != &source)
+		{
+
+			m_year = source.m_year;
+			m_mon = source.m_mon;
+			m_day = source.m_day;
+			m_errorCode = source.m_errorCode;
+			m_currentYear = source.m_currentYear;
+
+		}
+
+		return *this;
 
 	}
 
