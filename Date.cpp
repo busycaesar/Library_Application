@@ -20,6 +20,12 @@ using namespace std;
 namespace sdds
 {
 
+	// THE FOLLOWING GLOBAL VARIABLES ARE JUST FOR THE TESTING PURPOSE.
+	bool sdds_test = false;
+	int sdds_year = 2022;
+	int sdds_mon = 8;
+	int sdds_day = 7;
+
 	// THIS WILL SET THE OBJECT TO EMPTY STATE.
 	void Date::setEmpty()
 	{
@@ -93,10 +99,20 @@ namespace sdds
 	{
 
 		// VARIABLE DECLARATION.
-		time_t t = time(NULL);
-		tm lt = *localtime(&t);
+		int theYear = sdds_year;
 
-		return lt.tm_year + 1900;
+		if (!sdds_test)
+		{
+
+			// VARIABLE DECLARATION.
+			time_t t = time(NULL);
+			tm lt = *localtime(&t);
+
+			theYear = lt.tm_year + 1900;
+
+		}
+
+		return theYear;
 
 	}
 
@@ -126,13 +142,27 @@ namespace sdds
 	void Date::setToToday()
 	{
 
-		// VARIABLE DECLARATION.
-		time_t t = time(NULL);
-		tm lt = *localtime(&t);
+		if (sdds_test)
+		{
 
-		m_day = lt.tm_mday;
-		m_mon = lt.tm_mon + 1;
-		m_year = lt.tm_year + 1900;
+			m_day = sdds_day;
+			m_mon = sdds_mon;
+			m_year = sdds_year;
+
+		}
+		else
+		{
+
+			// VARIABLE DECLARATION.
+			time_t t = time(NULL);
+			tm lt = *localtime(&t);
+
+			m_day = lt.tm_mday;
+			m_mon = lt.tm_mon + 1;
+			m_year = lt.tm_year + 1900;
+
+		}
+
 		errCode(NO_ERROR);
 
 	}
@@ -208,8 +238,6 @@ namespace sdds
 
 		}
 
-		is.ignore(1000, '\n');
-
 		return is;
 
 	}
@@ -281,6 +309,24 @@ namespace sdds
 	{
 
 		return daysSince0001_1_1() - RO.daysSince0001_1_1();
+
+	}
+
+	Date& Date::operator=(const Date& source)
+	{
+
+		if (this != &source)
+		{
+
+			m_year = source.m_year;
+			m_mon = source.m_mon;
+			m_day = source.m_day;
+			m_errorCode = source.m_errorCode;
+			m_currentYear = source.m_currentYear;
+
+		}
+
+		return *this;
 
 	}
 

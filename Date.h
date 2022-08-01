@@ -37,14 +37,8 @@ namespace sdds
 	class Date
 	{
 
-	private:
-
 		// DATA MEMBERS.
-		int m_year;
-		int m_mon;
-		int m_day;
-		int m_errorCode;
-		int m_currentYear;
+		int m_year, m_mon, m_day, m_errorCode, m_currentYear;
 
 		// PRIVATE MEMBER FUNCTIONS.
 		void setEmpty();
@@ -77,6 +71,9 @@ namespace sdds
 		bool operator<(const Date& RO)const;
 		bool operator>(const Date& RO)const;
 		int operator-(const Date& RO)const;
+		Date& operator=(const Date& source);
+
+		// TYPE CASTING.
 		operator bool()const;
 
 	};
@@ -84,6 +81,11 @@ namespace sdds
 	// HELPER OPERATORS.
 	ostream& operator<<(ostream& os, const Date& RO);
 	istream& operator>>(istream& is, Date& RO);
+
+	extern bool sdds_test;
+	extern int sdds_year;
+	extern int sdds_mon;
+	extern int sdds_day;
 
 }
 

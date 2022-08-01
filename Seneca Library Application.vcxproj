@@ -140,15 +140,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Date.h" />
+    <ClInclude Include="Lib.h" />
     <ClInclude Include="LibApp.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Publication.h" />
+    <ClInclude Include="Streamable.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="LibApp.cpp" />
     <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="ms2_tester.cpp" />
+    <ClCompile Include="Publication.cpp" />
+    <ClCompile Include="Streamable.cpp" />
+    <ClCompile Include="ms3_tester.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
