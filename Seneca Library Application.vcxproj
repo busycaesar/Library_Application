@@ -153,7 +153,7 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Publication.cpp" />
     <ClCompile Include="Streamable.cpp" />
-    <ClCompile Include="tester.cpp" />
+    <ClCompile Include="ms3_tester.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

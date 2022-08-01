@@ -4,7 +4,7 @@
 // STUDENT ID : 131623217                                           //
 // MAIL ID    : djshah11@myseneca.ca                                //
 // COURSE     : OOP 244 NCC                                         //
-// SUBMISSION : MILESTONE 3                                         //
+// SUBMISSION : SENECA LIBRARY APPLICATION (MILESTONE 3)            //
 //                                                                  //
 //******************************************************************// 
 //                                                                  //
@@ -54,6 +54,7 @@ namespace sdds
 		setDefault();
 
 	}
+
 	Publication::Publication(const Publication& source)
 	{
 
@@ -72,7 +73,7 @@ namespace sdds
 	Publication::~Publication()
 	{
 
-		delete[]m_title;
+		delete[] m_title;
 
 	}
 
@@ -90,14 +91,19 @@ namespace sdds
 		if (this != &source)
 		{
 
-			delete[]m_title;
+			delete[] m_title;
 			setDefault();
 
-			strcpy(m_title, source.m_title);
-			strcpy(m_shelfID, source.m_shelfID);
-			m_membership = source.m_membership;
-			m_libRef = source.m_libRef;
-			m_date = source.m_date;
+			if (bool(source))
+			{
+
+				setTitle(source.m_title);
+				strcpy(m_shelfID, source.m_shelfID);
+				set(source.m_membership);
+				setRef(source.m_libRef);
+				m_date = source.m_date;
+
+			}
 
 		}
 
@@ -124,7 +130,12 @@ namespace sdds
 	void Publication::set(int member_id)
 	{
 
-		m_membership = member_id;
+		if (member_id < 100000)
+		{
+
+			m_membership = member_id;
+
+		}
 
 	}
 
@@ -170,26 +181,34 @@ namespace sdds
 
 	}
 
-	bool Publication::conIO(std::ios& io)const
+	bool Publication::conIO(ios& io)const
 	{
 
 		return (&io == &cout || &io == &cin);
 
 	}
 
-	ostream& Publication::write(std::ostream& out)const
+	ostream& Publication::write(ostream& out)const
 	{
 
 		if (conIO(out))
 		{
 
-			out << "| " << m_shelfID << " | " << setw(30) << setfill('.') << left << m_title << " | " << m_membership << " | " << m_date << " |";
+			out << "| " << setw(4) << m_shelfID << " | " << setw(30) << setfill('.') << left << m_title << " | ";
+
+			whichMember(m_membership, out);
+
+			out << " | " << m_date << " |";
 
 		}
 		else
 		{
 
-			out << type() << "\t" << m_shelfID << "\t" << m_title << "\t" << m_membership << "\t" << m_date;
+			out << type() << "\t" << m_libRef << "\t" << m_shelfID << "\t" << m_title << "\t";
+
+			whichMember(m_membership, out);
+
+			out << "\t" << m_date;
 
 		}
 
@@ -201,54 +220,55 @@ namespace sdds
 	{
 
 		// VARIABLE DECLARATION.
-		char whatsTitle[255 + 1];
-		char whichShelf[SDDS_SHELF_ID_LEN + 1];
-		unsigned int whichMember = 0;
-		int whatsrefNum = -1;
-		Date whichDate;
-
-		delete[] m_title;
-		setDefault();
+		char t_title[255 + 1], t_shelfID[SDDS_SHELF_ID_LEN + 2];
+		int t_membership = 0, t_libRef = -1;
+		Date t_date;
 
 		if (conIO(in))
 		{
 
 			cout << "Shelf No: ";
-			in.getline(whichShelf, 4, '\n');
+			in.get(t_shelfID, SDDS_SHELF_ID_LEN + 2, '\n');
 
-			if (strlen(whichShelf) != 4)
+			if (strlen(t_shelfID) != 4)
 			{
 
-				/////////////////////////////
+				in.setstate(ios::failbit);
 
 			}
 
-			cout << "Title: ";
+			in.ignore(1000, '\n');
 
-			in.getline(whatsTitle, 255, '\n');
+			cout << "Title: ";
+			in.get(t_title, 255 + 1, '\n');
+			in.ignore(1000, '\n');
 
 			cout << "Date: ";
-			in >> m_date;
+			in >> t_date;
 
 		}
 		else
 		{
 
-			in.ignore(1, '\t');
-			in >> whatsrefNum;
-			in.ignore(1, '\t');
-			in.getline(whichShelf, 4, '\t');
-			in.getline(whatsTitle, 255, '\t');
-			in >> m_membership;
-			in.ignore(1, '\t');
-			in >> m_date;
+			in >> t_libRef;
+			in.ignore(100, '\t');
+
+			in.getline(t_shelfID, SDDS_SHELF_ID_LEN + 1, '\t');
+
+			in.getline(t_title, 255 + 1, '\t');
+
+			in >> t_membership;
+
+			in.ignore(100, '\t');
+
+			in >> t_date;
 
 		}
 
-		if (m_date)
+		if (!t_date)
 		{
 
-			//////////////////////////////////////////////////////////////////////////////////////////////////
+			in.setstate(ios::failbit);
 
 		}
 
@@ -256,15 +276,37 @@ namespace sdds
 		{
 
 			delete[] m_title;
-			setTitle(whatsTitle);
-			strcpy(m_shelfID, whichShelf);
-			set(whichMember);
-			m_date = whichDate;
-			setRef(whatsrefNum);
+			setDefault();
+
+			setTitle(t_title);
+			strcpy(m_shelfID, t_shelfID);
+			set(t_membership);
+			m_date = t_date;
+			setRef(t_libRef);
 
 		}
 
 		return in;
+
+	}
+
+	ostream& Publication::whichMember(int f_membership, ostream& out)const
+	{
+
+		if (!f_membership)
+		{
+
+			out << setw(5) << " N/A ";
+
+		}
+		else
+		{
+
+			out << setw(5) << f_membership;
+
+		}
+
+		return out;
 
 	}
 
