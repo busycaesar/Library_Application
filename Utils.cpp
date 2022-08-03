@@ -50,4 +50,18 @@ namespace sdds
 
 	}
 
+	ostream& onlyPrint(const char* f_word, int f_limit, ostream& f_out)
+	{
+
+		for (int i = 0; i < f_limit; i++)
+		{
+
+			f_out << f_word[i];
+
+		}
+
+		return f_out;
+
+	}
+
 }

@@ -3,7 +3,7 @@
 // File  utils.h
 // Version 1.0
 // Author Dev Jigishkumar Shah
-// Description 
+// Description
 //
 // Revision History
 // -----------------------------------------------------------
@@ -16,11 +16,14 @@
 
 #include <iostream>
 
+using namespace std;
+
 namespace sdds
 {
 
 	// FUNCTION SIGNATURE.
 	int prompt(int min, int max);
+	ostream& onlyPrint(const char* f_word, int f_limit, ostream& f_out = cout);
 
 }
 #endif // SDDS_UTILS_H_

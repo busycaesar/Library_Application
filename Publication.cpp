@@ -22,6 +22,7 @@
 #include<cstring>
 #include"Publication.h"
 #include <iomanip>
+#include"Utils.h"
 
 using namespace std;
 
@@ -199,12 +200,7 @@ namespace sdds
 
 				out << "| " << setw(4) << m_shelfID << " | ";
 
-				for (int i = 0; i < 30; i++)
-				{
-
-					out << m_title[i];
-
-				}
+				onlyPrint(m_title, 30, out);
 
 				out << " | ";
 

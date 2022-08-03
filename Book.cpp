@@ -22,6 +22,7 @@
 #include<cstring>
 #include"Lib.h"
 #include<iomanip>
+#include"Utils.h"
 
 namespace sdds
 {
@@ -130,12 +131,7 @@ namespace sdds
 
 				f_out << " ";
 
-				for (int i = 0; i < SDDS_AUTHOR_WIDTH; i++)
-				{
-
-					f_out << m_author[i];
-
-				}
+				onlyPrint(m_author, SDDS_AUTHOR_WIDTH, f_out);
 
 				f_out << " |";
 
