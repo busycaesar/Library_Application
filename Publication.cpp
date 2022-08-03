@@ -225,7 +225,7 @@ namespace sdds
 		else
 		{
 
-			out << type() << "\t" << m_libRef << "\t" << m_shelfID << "\t" << m_title << "\t";
+			out << endl << type() << "\t" << m_libRef << "\t" << m_shelfID << "\t" << m_title << "\t";
 
 			whichMember(m_membership, out);
 
