@@ -22,6 +22,7 @@
 #include<cstring>
 #include"Publication.h"
 #include <iomanip>
+#include"Utils.h"
 
 using namespace std;
 
@@ -194,7 +195,23 @@ namespace sdds
 		if (conIO(out))
 		{
 
-			out << "| " << setw(4) << m_shelfID << " | " << setw(30) << setfill('.') << left << m_title << " | ";
+			if (strlen(m_title) >= 30)
+			{
+
+				out << "| " << setw(4) << m_shelfID << " | ";
+
+				onlyPrint(m_title, 30, out);
+
+				out << " | ";
+
+			}
+			else
+			{
+
+				out << "| " << setw(4) << m_shelfID << " | " << setw(30) << setfill('.') << left << m_title << " | ";
+
+			}
+
 
 			whichMember(m_membership, out);
 
@@ -204,7 +221,7 @@ namespace sdds
 		else
 		{
 
-			out << type() << "\t" << m_libRef << "\t" << m_shelfID << "\t" << m_title << "\t";
+			out << endl << type() << "\t" << m_libRef << "\t" << m_shelfID << "\t" << m_title << "\t";
 
 			whichMember(m_membership, out);
 
