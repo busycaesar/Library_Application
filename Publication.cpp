@@ -194,7 +194,28 @@ namespace sdds
 		if (conIO(out))
 		{
 
-			out << "| " << setw(4) << m_shelfID << " | " << setw(30) << setfill('.') << left << m_title << " | ";
+			if (strlen(m_title) >= 30)
+			{
+
+				out << "| " << setw(4) << m_shelfID << " | ";
+
+				for (int i = 0; i < 30; i++)
+				{
+
+					out << m_title[i];
+
+				}
+
+				out << " | ";
+
+			}
+			else
+			{
+
+				out << "| " << setw(4) << m_shelfID << " | " << setw(30) << setfill('.') << left << m_title << " | ";
+
+			}
+
 
 			whichMember(m_membership, out);
 

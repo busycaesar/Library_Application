@@ -107,13 +107,33 @@ namespace sdds
 		if (Publication::conIO(f_out))
 		{
 
-			f_out << " " << setw(SDDS_AUTHOR_WIDTH) << left << m_author << " |";
+			if (strlen(m_author) >= SDDS_AUTHOR_WIDTH)
+			{
+
+				f_out << " ";
+
+				for (int i = 0; i < SDDS_AUTHOR_WIDTH; i++)
+				{
+
+					f_out << m_author[i];
+
+				}
+
+				f_out << " |";
+
+			}
+			else
+			{
+
+				f_out << " " << setw(SDDS_AUTHOR_WIDTH) << left << m_author << " |";
+
+			}
 
 		}
 		else
 		{
 
-			f_out << "\t" << m_author;
+			f_out << '\t' << m_author;
 
 		}
 
