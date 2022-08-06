@@ -56,13 +56,13 @@
     <ClCompile Include="Publication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ms4_tester.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Streamable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Book.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tester.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
