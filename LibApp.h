@@ -20,6 +20,7 @@
 #define SDDS_LIBAPP_H
 
 #include"Menu.h"
+#include"Publication.h"
 
 namespace sdds
 {
@@ -30,8 +31,11 @@ namespace sdds
 
 		// DATA MEMBERS.
 		bool m_changed;
-		Menu m_mainMenu{ "Seneca Library Application" };
-		Menu m_exitMenu{ "Changes have been made to the data, what would you like to do?" };
+		Menu m_mainMenu{ "Seneca Library Application" }, m_exitMenu{ "Changes have been made to the data, what would you like to do?" }, m_PubType{ "Choose the type of publication:" };
+		char m_fileName[256 + 1];
+		Publication* m_PPA[SDDS_LIBRARY_CAPACITY];
+		int m_NOLPinPPA, m_LLRN;
+
 
 		// MEMBER FUNCTION.
 		void setEmpty();

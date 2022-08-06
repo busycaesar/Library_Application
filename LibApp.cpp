@@ -31,8 +31,10 @@ namespace sdds
 		m_changed = false;
 		m_mainMenu << "Add New Publication" << "Remove Publication" << "Checkout publication from library" << "Return publication to library";
 		m_exitMenu << "Save changes and exit" << "Cancel and go back to the main menu";
+		m_PubType << "Book" << "Publication";
 
 	}
+
 	bool LibApp::confirm(const char* message)
 	{
 
