@@ -1,0 +1,4 @@
+1. Write every code within namespace sdds.
+2. Keep functions private if not needed by client code.
+3. Assign meaningful name to all the Data Members and Member Functions.
+4. Add const after all those functions which are not changing the data members.
