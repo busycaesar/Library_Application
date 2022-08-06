@@ -31,7 +31,7 @@ namespace sdds
 		// DATA MEMBERS.
 		bool m_changed;
 		Menu m_mainMenu{ "Seneca Library Application" };
-		Menu m_exitMenu{"Changes have been made to the data, what would you like to do?"};
+		Menu m_exitMenu{ "Changes have been made to the data, what would you like to do?" };
 
 		// MEMBER FUNCTION.
 		void setEmpty();

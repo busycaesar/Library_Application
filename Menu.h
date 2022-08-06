@@ -86,7 +86,7 @@ namespace sdds
 		// MEMBER FUNCTION.
 		ostream& displayTitle(ostream& out)const;
 		ostream& displayMenu(ostream& out)const;
-		unsigned int run()const	;
+		unsigned int run()const;
 
 		// OPERATOR.
 		unsigned int operator~()const;

@@ -36,7 +36,7 @@ namespace sdds
 
     // MAXIMUM NUMBER OF PUBLICATION AVAILABE IN THE LIBRARY..
     const int SDDS_LIBRARY_CAPACITY = 5000;
-   
+
 }
 
 #endif // !SDDS_LIB_H

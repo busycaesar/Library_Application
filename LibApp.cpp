@@ -148,12 +148,12 @@ namespace sdds
 
 				newPublication();
 				break;
-			
+
 			case 2:
-			
+
 				removePublication();
 				break;
-			
+
 			case 3:
 
 				checkOutPub();
@@ -202,11 +202,11 @@ namespace sdds
 			}
 
 			// IF TEMP, THAT IS, THE SELECTED OPTION FROM THE MAIN MENU IS NOT 0, THAT IS TO EXIT THE APPLICATION, IT WILL PRINT THE CONTENT INTO NEW LINE.
-			if (temp) 
-			{ 
-			
-				cout << endl; 
-			
+			if (temp)
+			{
+
+				cout << endl;
+
 			}
 
 		}
