@@ -212,20 +212,13 @@ namespace sdds
 
 			}
 
-
-			whichMember(m_membership, out);
-
-			out << " | " << m_date << " |";
+			out << m_membership << " | " << m_date << " |";
 
 		}
 		else
 		{
 
-			out << endl << type() << "\t" << m_libRef << "\t" << m_shelfID << "\t" << m_title << "\t";
-
-			whichMember(m_membership, out);
-
-			out << "\t" << m_date;
+			out << type() << '\t' << m_libRef << '\t' << m_shelfID << '\t' << m_title << '\t' << m_membership << '\t' << m_date;
 
 		}
 
@@ -304,26 +297,6 @@ namespace sdds
 		}
 
 		return in;
-
-	}
-
-	ostream& Publication::whichMember(int f_membership, ostream& out)const
-	{
-
-		if (!f_membership)
-		{
-
-			out << setw(5) << " N/A ";
-
-		}
-		else
-		{
-
-			out << setw(5) << f_membership;
-
-		}
-
-		return out;
 
 	}
 

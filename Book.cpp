@@ -79,7 +79,6 @@ namespace sdds
 	{
 
 		delete[] m_author;
-		setEmpty();
 
 	}
 

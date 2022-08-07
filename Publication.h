@@ -54,7 +54,7 @@ namespace sdds
 		Publication(const Publication& source);
 
 		// DESTRUCTOR.
-		~Publication();
+		virtual ~Publication();
 
 		// OPERATOR.
 		bool operator==(const char* title)const;
@@ -75,7 +75,6 @@ namespace sdds
 		virtual bool conIO(ios& io)const;
 		virtual ostream& write(ostream& out)const;
 		virtual istream& read(istream& in);
-		ostream& whichMember(int f_membership, ostream& out)const;
 
 	};
 
