@@ -263,62 +263,66 @@ namespace sdds
 				aborted();
 
 			}
-
-			switch (t_type)
-			{
-
-			case 'P':
-				t_publication = new Publication;
-				break;
-
-			case 'B':
-				t_publication = new Book;
-				break;
-
-			}
-
-			t_publication->read(cin);
-
-			if (cin.fail())
-			{
-
-				cin.ignore(1000, '\n');
-				aborted();
-				delete t_publication;
-
-			}
 			else
 			{
 
-				if (confirm("Add this publication to the library?"))
+				switch (t_type)
 				{
 
-					if (bool(t_publication))
-					{
+				case 'P':
+					t_publication = new Publication;
+					break;
 
-						m_LLRN++;
-						t_publication->setRef(m_LLRN);
-						m_PPA[m_NOLPinPPA] = t_publication;
-						m_NOLPinPPA++;
-						m_changed = true;
+				case 'B':
+					t_publication = new Book;
+					break;
 
-						cout << "Publication added" << endl;
+				}
 
-					}
-					else
-					{
+				t_publication->read(cin);
 
-						cout << "Failed to add publication!";
-						delete t_publication;
+				if (cin.fail())
+				{
 
-					}
+					cin.ignore(1000, '\n');
+					aborted();
+					delete t_publication;
 
 				}
 				else
 				{
 
-					aborted();
-					delete t_publication;
+					if (confirm("Add this publication to the library?"))
+					{
+
+						if (bool(t_publication))
+						{
+
+							m_LLRN++;
+							t_publication->setRef(m_LLRN);
+							m_PPA[m_NOLPinPPA] = t_publication;
+							m_NOLPinPPA++;
+							m_changed = true;
+
+							cout << "Publication added" << endl;
+
+						}
+						else
+						{
+
+							cout << "Failed to add publication!";
+							delete t_publication;
+
+						}
+
+					}
+					else
+					{
+
+						aborted();
+						delete t_publication;
+
+					}
 
 				}
 
@@ -381,7 +385,7 @@ namespace sdds
 					cin >> t_memNum;
 					t_temp = 1;
 
-				} while (t_memNum < 9999 && t_memNum > 100000);
+				} while (t_memNum < 9999 || t_memNum > 100000);
 
 				(getPub(t_ref))->set(t_memNum);
 				m_changed = true;
@@ -409,6 +413,9 @@ namespace sdds
 			break;
 		case 2:
 			t_type = 'P';
+			break;
+		default:
+			t_type = 0;
 			break;
 		}
 
