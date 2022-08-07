@@ -245,7 +245,7 @@ namespace sdds
 		if (m_NOLPinPPA == SDDS_LIBRARY_CAPACITY)
 		{
 
-			cout << "Library is at its maximum capacity!";
+			cout << "Library is at its maximum capacity!" << endl;
 
 		}
 		else

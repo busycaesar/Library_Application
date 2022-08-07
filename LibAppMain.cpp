@@ -19,7 +19,7 @@ int main()
 	sdds::sdds_mon = 12;
 	sdds::sdds_year = 2021;
 	sdds::sdds_test = true;
-	sdds::LibApp theApp("LibRecsSmall.txt");
+	sdds::LibApp theApp("LibRecs.txt");
 	
 	theApp.run();
 	
