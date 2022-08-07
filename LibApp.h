@@ -42,16 +42,19 @@ namespace sdds
 		bool confirm(const char* message);
 		void load();
 		void save();
-		void search();
+		int search(int f_whichopt);
 		void returnPub();
 		void newPublication();
 		void removePublication();
 		void checkOutPub();
+		char whichType()const;
+		void aborted()const;
+		Publication* getPub(int libRef)const;
 
 	public:
 
 		// CONSTRUCTOR.
-		LibApp();
+		LibApp(const char* f_fileName);
 
 		// MEMBER FUNCTION.
 		void run();

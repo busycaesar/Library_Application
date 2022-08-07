@@ -68,5 +68,8 @@
     <ClCompile Include="PublicationSelector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LibAppMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
