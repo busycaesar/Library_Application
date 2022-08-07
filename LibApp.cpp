@@ -192,7 +192,7 @@ namespace sdds
 		else
 		{
 
-			cout << "No matches found!";
+			cout << "No matches found!" << endl;
 
 		}
 
@@ -363,20 +363,22 @@ namespace sdds
 			if (confirm("Check out publication?"))
 			{
 
+				cout << "Enter Membership number: ";
+
 				do
 				{
 
 					if (t_temp)
 					{
 
-						cout << "Checkout publication from the library";
+						cout << "Invalid membership number, try again: ";
 
 					}
 
 					cin >> t_memNum;
 					t_temp = 1;
 
-				} while (t_memNum > 9999 && t_memNum < 100000);
+				} while (t_memNum < 9999 && t_memNum > 100000);
 
 				(getPub(t_ref))->set(t_memNum);
 				m_changed = true;
@@ -480,6 +482,7 @@ namespace sdds
 			case 3:
 
 				checkOutPub();
+				cout << endl;
 				break;
 
 			case 4:
@@ -523,7 +526,7 @@ namespace sdds
 		}
 
 		cout << endl << "-------------------------------------------" << endl
-			<< "Thanks for using Seneca Library Application"<<endl;
+			<< "Thanks for using Seneca Library Application" << endl;
 
 	}
 
