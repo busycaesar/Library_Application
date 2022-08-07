@@ -24,7 +24,6 @@
 #include<fstream>
 #include"Book.h"
 #include"PublicationSelector.h"
-#include<iomanip>
 
 using namespace std;
 
@@ -221,7 +220,11 @@ namespace sdds
 				{
 
 					t_panelty = (t_rentDays - SDDS_MAX_LOAN_DAYS) * SDDS_PANELTY;
-					cout << "Please pay $" << setprecision(2) << t_panelty << " panelty for being " << (t_rentDays - SDDS_MAX_LOAN_DAYS) << " days late!" << endl;
+					cout << "Please pay $";
+					cout.setf(ios::fixed);
+					cout.precision(2);
+					cout << t_panelty << " penalty for being " << t_rentDays - SDDS_MAX_LOAN_DAYS << " days late!" << endl;
+					cout.unsetf(ios::fixed);
 
 				}
 
@@ -488,6 +491,7 @@ namespace sdds
 			case 4:
 
 				returnPub();
+				cout << endl;
 				break;
 
 			case 0:
