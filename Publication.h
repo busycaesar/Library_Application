@@ -75,6 +75,7 @@ namespace sdds
 		virtual bool conIO(ios& io)const;
 		virtual ostream& write(ostream& out)const;
 		virtual istream& read(istream& in);
+		ostream& whichMember(int f_membership, ostream& out)const;
 
 	};
 

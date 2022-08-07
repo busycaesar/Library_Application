@@ -235,7 +235,7 @@ namespace sdds
             for (j = 0; j < m_noOfPubs - i - 1; j++) 
             {
 
-                if (m_pub[j]->checkoutDate() > m_pub[j + 1]->checkoutDate()) 
+                if (m_pub[j]->checkoutDate() < m_pub[j + 1]->checkoutDate()) 
                 {
 
                     temp = m_pub[j];

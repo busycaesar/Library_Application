@@ -474,6 +474,7 @@ namespace sdds
 			case 2:
 
 				removePublication();
+				cout << endl;
 				break;
 
 			case 3:
