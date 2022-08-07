@@ -212,7 +212,6 @@ namespace sdds
 
 			}
 
-
 			whichMember(m_membership, out);
 
 			out << " | " << m_date << " |";
@@ -221,11 +220,7 @@ namespace sdds
 		else
 		{
 
-			out << endl << type() << "\t" << m_libRef << "\t" << m_shelfID << "\t" << m_title << "\t";
-
-			whichMember(m_membership, out);
-
-			out << "\t" << m_date;
+			out << type() << "\t" << m_libRef << "\t" << m_shelfID << "\t" << m_title << "\t" << m_membership << "\t" << m_date;
 
 		}
 

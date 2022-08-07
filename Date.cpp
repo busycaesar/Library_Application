@@ -266,7 +266,7 @@ namespace sdds
 	bool Date::operator==(const Date& RO)const
 	{
 
-		return (m_year == RO.m_year && m_mon == RO.m_mon && m_day == RO.m_day);
+		return (daysSince0001_1_1() == RO.daysSince0001_1_1());
 
 	}
 
@@ -294,14 +294,14 @@ namespace sdds
 	bool Date::operator<(const Date& RO)const
 	{
 
-		return ((m_year <= RO.m_year) && (m_mon <= RO.m_mon) && (*this != RO));
+		return (daysSince0001_1_1() < RO.daysSince0001_1_1());
 
 	}
 
 	bool Date::operator>(const Date& RO)const
 	{
 
-		return ((*this != RO) && !(*this < RO));
+		return (!(*this < RO) && (*this != RO));
 
 	}
 

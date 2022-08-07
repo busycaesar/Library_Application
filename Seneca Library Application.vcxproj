@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{747c512a-595f-4b6e-8747-8c9b03a86097}</ProjectGuid>
+    <ProjectGuid>{c735e96b-7beb-448e-985c-2f7bfd4805ed}</ProjectGuid>
     <RootNamespace>SenecaLibraryApplication</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -145,6 +145,7 @@
     <ClInclude Include="LibApp.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Publication.h" />
+    <ClInclude Include="PublicationSelector.h" />
     <ClInclude Include="Streamable.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
@@ -152,10 +153,11 @@
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="LibApp.cpp" />
+    <ClCompile Include="LibAppMain.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Publication.cpp" />
+    <ClCompile Include="PublicationSelector.cpp" />
     <ClCompile Include="Streamable.cpp" />
-    <ClCompile Include="Tester.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -54,7 +54,7 @@ namespace sdds
 		Publication(const Publication& source);
 
 		// DESTRUCTOR.
-		~Publication();
+		virtual ~Publication();
 
 		// OPERATOR.
 		bool operator==(const char* title)const;

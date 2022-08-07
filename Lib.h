@@ -35,8 +35,11 @@ namespace sdds
     const int SDDS_SHELF_ID_LEN = 4;
 
     // MAXIMUM NUMBER OF PUBLICATION AVAILABE IN THE LIBRARY..
-    const int SDDS_LIBRARY_CAPACITY = 5000;
-   
+    const int SDDS_LIBRARY_CAPACITY = 333;
+
+    // PANELTY FOR EACH DAY BEYOND THE ASSIGNED TIME PERIOD.
+    const double SDDS_PANELTY = 0.50;
+
 }
 
 #endif // !SDDS_LIB_H
