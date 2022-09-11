@@ -8,4 +8,4 @@
 
 # Warning
 
-## This is my personal work and copying this is against the academic Integrity Policy of Seneca College which may lead you in trouble.
+## This is my personal work and copying this is against the Academic Integrity Policy of Seneca College which may lead you in trouble.
