@@ -1,6 +1,6 @@
 # Seneca_Library_Application
 
-## This is the final project of OOP 244(Introduction to Object Oriented Programming), which is a CLI application for the Management of Seneca's Library which can Add new, Remove, Checkout and/or return publications and also update/manipulate the database accordingly.
+## This is a CLI application for the Management of Seneca's Library which can Add New, Remove, Checkout and/or Return publications along with updating/manipulating the database accordingly.
 
 ## Following is the main menu of the application.
 
