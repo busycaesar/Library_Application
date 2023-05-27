@@ -1,6 +1,6 @@
 # Seneca_Library_Application
 
-## This is a CLI application for the Management of Seneca's Library which can Add New, Remove, Checkout and/or Return publications along with updating/manipulating the database accordingly.
+## This is a CLI Application which can manage Seneca's Library. It can Add, Remove, Checkout and/or Return the publication/s along with managing the Data in a .txt file. This main purpose of this project was to learn the concepts of OOP.
 
 ## Following is the main menu of the application.
 
